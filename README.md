@@ -52,9 +52,6 @@ The shell prompt is prefixed with `(.venv)` once the environment is active. Run
 pip install -r requirements.txt
 ```
 
-`twb_dbr_to_e6_conn_only_tdsx_handle.py` uses only the standard library;
-`tab_publish.py` requires `requests`.
-
 ## `twb_dbr_to_e6_conn_only_tdsx_handle.py`
 
 Rewrites the connection definitions in a `.twb` (Tableau Workbook), `.twbx` (Tableau
@@ -85,10 +82,9 @@ Connection parameters may also be supplied from a JSON file with `--config`.
 | Option | Description |
 |---|---|
 | `--in` | Input file (required) |
-| `--out` | Output file (required unless `--report-only`) |
+| `--out` | Output file (required) |
 | `--config` | JSON file of connection parameters |
 | `--server`, `--port`, `--dbname`, `--username`, `--sslmode` | e6data connection details |
-| `--report-only` | Analyse only; write nothing |
 
 ## `tab_publish.py`
 
@@ -101,7 +97,7 @@ Cloud and Server:
 | Deployment | `--host` |
 |---|---|
 | Tableau Cloud | `https://<pod>.online.tableau.com` |
-| Tableau Server | `https://tableau.example.com` |
+| Tableau Server | `https://10.0.0.25` or your server hostname |
 
 ### Usage
 
@@ -109,7 +105,7 @@ List the projects available on a site:
 
 ```bash
 python tab_publish.py \
-    --host https://tableau.example.com \
+    --host https://10.0.0.25 \
     --site mysite \
     --token-name my-token \
     --token-secret 'SECRET' \
@@ -120,7 +116,7 @@ Publish with embedded database credentials:
 
 ```bash
 python tab_publish.py \
-    --host https://tableau.example.com \
+    --host https://10.0.0.25 \
     --site mysite \
     --token-name my-token \
     --token-secret 'SECRET' \
@@ -143,6 +139,3 @@ python tab_publish.py \
 | `--db-username`, `--db-password` | Connection credentials to embed |
 | `--overwrite` | Replace existing content of the same name |
 | `--list-projects` | List projects and exit |
-
-Files larger than 64 MB require Tableau's chunked `/fileUploads` endpoint, which is not
-implemented here; the script reports this and exits rather than failing mid-upload.
