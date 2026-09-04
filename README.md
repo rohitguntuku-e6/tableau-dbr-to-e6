@@ -21,8 +21,8 @@ For each `<named-connection>` containing `<connection class='databricks'>` it:
 - renames the connection id `databricks.*` → `postgres.*` and repoints every
   `<relation connection=...>` reference to match, so no Replace Data Source and no
   field re-mapping is needed
-- injects `CAP_CREATE_TEMP_TABLES='no'` (plus `CAP_SELECT_INTO`, `CAP_INDEX_TEMP_TABLES`)
-  to force Tableau to inline, since e6data has no temp tables
+- optionally sets connection capability flags so Tableau inlines its queries; pass
+  `--allow-temp-tables` to skip this
 
 ```bash
 # see what would change, write nothing

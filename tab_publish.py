@@ -9,15 +9,9 @@ Auth is Personal Access Token (required on Cloud, supported on Server).
 Examples
 --------
 List projects:
-    python tab_publish.py --host https://prod-apnortheast-a.online.tableau.com \
+    python tab_publish.py --host host_name \
         --site mysite --token-name e6-migration --token-secret 'XXX' --list-projects
 
-Publish a datasource with embedded Databricks PAT:
-    python tab_publish.py --host ... --site mysite \
-        --token-name e6-migration --token-secret 'XXX' \
-        --file DBR_test_customer.tds --project 'e6-migration-test' \
-        --name customer_dbr \
-        --db-username token --db-password 'dapiXXXXXXXX'
 
 Publish the migrated workbook with e6 credentials:
     python tab_publish.py --host ... --site mysite \

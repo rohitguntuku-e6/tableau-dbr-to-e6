@@ -12,8 +12,7 @@ stay byte-identical):
   class='databricks'> is rebuilt as a clean PostgreSQL <connection>. The
   named-connection `name` id is renamed databricks.* -> postgres.* (and every
   <relation connection=...> reference is repointed to match), so no
-  Replace-Data-Source, no field re-mapping, no suffix bug. Temp tables are
-  disabled via CAP_* capability flags (e6data has no temp tables).
+  Replace-Data-Source, no field re-mapping, no suffix bug.
 
 Usage:
     python twb_dbr_to_e6_conn_only.py --in in.twb[x] --out out.twb[x]
@@ -38,7 +37,7 @@ DEFAULT_CFG = {
     "sslmode": "require",
     "authentication": "username-password",
     "caption": None,
-    "disable_temp_tables": True,        # e6data has no temp tables -> inject CAP_*='no'
+    "disable_temp_tables": True,        
     "rename_prefix": "postgres",        # rename named-connection ids databricks.* -> postgres.*
                                         #   (None keeps original ids)
 }
@@ -201,7 +200,7 @@ def main():
               "caption", "match_class"):
         ap.add_argument("--%s" % k.replace("_", "-"), dest=k, default=None, help="override %s" % k)
     ap.add_argument("--allow-temp-tables", action="store_true",
-                    help="do NOT inject the temp-table-disabling capability (e6data has no temp tables, so default is to disable)")
+                    help="do NOT inject the temp-table-disabling capability (disabled by default)")
     ap.add_argument("--rename-prefix", dest="rename_prefix", default=None,
                     help="prefix for renamed connection ids (default postgres; pass '' to keep databricks.* ids)")
     ap.add_argument("--report-only", action="store_true", help="analyze only; write nothing")
