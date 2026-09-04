@@ -132,8 +132,8 @@ python tab_publish.py \
 |---|---|
 | `--host` | Tableau Cloud or Tableau Server URL (required) |
 | `--site` | Site content URL; omit for the default site |
-| `--token-name`, `--token-secret` | Personal Access Token (required) |
-| `--file` | File to publish |
+| `--token-name`, `--token-secret` | Tableau Personal Access Token and Token name (required) |
+| `--file` | Converted tdsx File to publish |
 | `--project` / `--project-id` | Target project by name or identifier |
 | `--name` | Published name (defaults to the file stem) |
 | `--db-username`, `--db-password` | e6data connection credentials to embed |
