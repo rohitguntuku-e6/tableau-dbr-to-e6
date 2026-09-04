@@ -73,8 +73,8 @@ python twb_dbr_to_e6_conn_only_tdsx_handle.py \
     --in 4G_NOHARM_DY.twbx \
     --out 4G_NOHARM_DY_migrated.twbx \
     --server my-host.example.com \
-    --dbname mydb \
-    --username myuser
+    --dbname 'mydb' \
+    --username 'cluster-name/username'
 ```
 
 Connection parameters may also be supplied from a JSON file with `--config`.
@@ -136,6 +136,6 @@ python tab_publish.py \
 | `--file` | File to publish |
 | `--project` / `--project-id` | Target project by name or identifier |
 | `--name` | Published name (defaults to the file stem) |
-| `--db-username`, `--db-password` | Connection credentials to embed |
+| `--db-username`, `--db-password` | e6data connection credentials to embed |
 | `--overwrite` | Replace existing content of the same name |
 | `--list-projects` | List projects and exit |
