@@ -70,8 +70,8 @@ For each `<named-connection>` containing `<connection class='databricks'>` the s
 
 ```bash
 python twb_dbr_to_e6_conn_only_tdsx_handle.py \
-    --in workbook.twbx \
-    --out workbook_migrated.twbx \
+    --in 4G_NOHARM_DY.twbx \
+    --out 4G_NOHARM_DY_migrated.twbx \
     --server my-host.example.com \
     --dbname mydb \
     --username myuser
