@@ -123,8 +123,8 @@ python tab_publish.py \
     --file datasource.tdsx \
     --project 'my-project' \
     --name datasource \
-    --db-username USER \
-    --db-password 'PASS' \
+    --db-username 'USER' \
+    --db-password 'PASSWORD' \
     --overwrite
 ```
 
