@@ -1,4 +1,4 @@
-# tableau-dbr-to-e6
+# tableau-databricks-to-e6data
 
 Command-line tools for migrating Tableau content from Databricks to
 [e6data](https://www.e6data.com/), which speaks the PostgreSQL wire protocol.
