@@ -14,12 +14,46 @@ Supported Tableau file formats:
 
 ## Installation
 
+### 1. Install Python
+
+Python 3.8 or later is required. Check whether it is already present:
+
+```bash
+python3 --version
+```
+
+If not, install it:
+
+| Platform | Command |
+|---|---|
+| macOS | `brew install python` |
+| Ubuntu / Debian | `sudo apt update && sudo apt install python3 python3-venv python3-pip` |
+| RHEL / Fedora | `sudo dnf install python3 python3-pip` |
+| Windows | Download from [python.org](https://www.python.org/downloads/) and select **Add Python to PATH** during setup |
+
+### 2. Create a virtual environment
+
+A virtual environment keeps these dependencies isolated from the system Python.
+
+```bash
+git clone https://github.com/rohitguntuku-e6/tableau-dbr-to-e6.git
+cd tableau-dbr-to-e6
+
+python3 -m venv .venv
+source .venv/bin/activate          # Windows: .venv\Scripts\activate
+```
+
+The shell prompt is prefixed with `(.venv)` once the environment is active. Run
+`deactivate` to leave it, and re-run the `activate` command in any new shell.
+
+### 3. Install dependencies
+
 ```bash
 pip install -r requirements.txt
 ```
 
-Python 3.8 or later. `twb_dbr_to_e6_conn_only_tdsx_handle.py` uses only the standard
-library; `tab_publish.py` requires `requests`.
+`twb_dbr_to_e6_conn_only_tdsx_handle.py` uses only the standard library;
+`tab_publish.py` requires `requests`.
 
 ## `twb_dbr_to_e6_conn_only_tdsx_handle.py`
 
